@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Security.Cryptography;
 
 [RequireComponent(typeof(CharacterController))]
 public class Move : MonoBehaviour
 {
     public float speed = 3.0F;
     public float rotateSpeed = 1.0F;
-
     private CharacterController controller;
 
 	void Start()

@@ -8,40 +8,33 @@ using UnityEngine;
 public class PickUppable : MonoBehaviour
 {
     private Rigidbody rb;
-    private GameObject pickedUpBy;
+    private Transform heldPosition;
 
     private bool isPickedUp = false;
 
-    public void TogglePickUp(GameObject pickUpper)
+    public void TogglePickUp(Transform hp)
 	{
         if (!isPickedUp)
 		{
-            GetPickedUp(pickUpper);
+            GetPickedUp(hp);
 		}
 		else
 		{
-            GetDropped(pickUpper);
+            GetDropped();
 		}
 	}
 
-    private void GetPickedUp(GameObject pickUpper)
+    private void GetPickedUp(Transform hp)
 	{
-        pickedUpBy = pickUpper;
-        transform.position = pickedUpBy.transform.position;
-        transform.parent = pickedUpBy.transform;
-        
-        rb.useGravity = false;
+        heldPosition = hp;
         rb.freezeRotation = true;
         isPickedUp = true;
     }
 
-    public void GetDropped(GameObject pickUpper)
+    public void GetDropped()
 	{
         if (isPickedUp)
 		{
-            pickedUpBy = null;
-            transform.parent = null;
-            rb.useGravity = true;
             rb.freezeRotation = false;
             isPickedUp = false;
         }
@@ -56,7 +49,7 @@ public class PickUppable : MonoBehaviour
 	{
         if (isPickedUp)
         {
-            rb.velocity = Vector3.zero;
+            rb.velocity = 15 * (heldPosition.position - transform.position);
         }
     }
 }

@@ -7,6 +7,7 @@ public class PhotonPlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private PhotonView PV;
+    private CharacterController controller;
     private Camera cam;
     private Vector3 moveAmount;
     private Vector3 smoothMoveVelocity;
@@ -17,8 +18,9 @@ public class PhotonPlayerController : MonoBehaviour
 
     void Awake()
 	{
-		rb = GetComponent<Rigidbody>();
+		//rb = GetComponent<Rigidbody>();
 		PV = GetComponent<PhotonView>();
+        controller = GetComponent<CharacterController>();
 	}
 
     // Start is called before the first frame update
@@ -30,7 +32,7 @@ public class PhotonPlayerController : MonoBehaviour
 			Destroy(rb);
 		}
 
-        cam = GetComponent<Camera>();
+        cam = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -54,10 +56,11 @@ public class PhotonPlayerController : MonoBehaviour
 	{
         // Rotate around y - axis
         transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
-
+        /*
         Vector3 moveDir = new Vector3(0, 0, Input.GetAxisRaw("Vertical")).normalized;
         moveAmount = Vector3.SmoothDamp(moveAmount, moveDir * speed, ref smoothMoveVelocity, smoothTime);
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);*/
+
         /*Vector3 targetVelocity = new Vector3(0, 0, Input.GetAxis("Vertical")).normalized;
         targetVelocity = transform.TransformDirection(targetVelocity)* Time.fixedDeltaTime * speed;
         Vector3 velocity = rb.velocity;
@@ -66,6 +69,12 @@ public class PhotonPlayerController : MonoBehaviour
         velocityChange.y = 0;
         velocityChange.x = 0;
         rb.AddForce(velocityChange, ForceMode.VelocityChange);*/
+
+        Vector3 forward = cam.transform.TransformDirection(Vector3.forward);
+        forward.y = 0;
+        forward.Normalize();
+        float curSpeed = speed * Input.GetAxis("Vertical");
+        controller.SimpleMove(forward * curSpeed);
 
 	}
 }

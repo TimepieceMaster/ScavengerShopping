@@ -134,9 +134,7 @@ GameObject:
   - component: {fileID: 18520959}
   - component: {fileID: 18520958}
   - component: {fileID: 18520957}
-  - component: {fileID: 18520963}
-  - component: {fileID: 18520962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,46 +231,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &18520962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18520956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 18520963}
-          m_MethodName: TogglePickUp
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 609852340}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &18520963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18520956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72aa5b206a55f9428e55c9bfc9f02ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &244471339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -728,55 +686,13 @@ GameObject:
   - component: {fileID: 802056816}
   - component: {fileID: 802056815}
   - component: {fileID: 802056814}
-  - component: {fileID: 802056813}
-  - component: {fileID: 802056812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &802056812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802056811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 802056813}
-          m_MethodName: TogglePickUp
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 609852340}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &802056813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802056811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72aa5b206a55f9428e55c9bfc9f02ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &802056814
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -935,6 +851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SMGP_PRE_Bread_256
       objectReference: {fileID: 0}
+    - target: {fileID: 174864, guid: 569fc14f8601a4b65b2e5a612ddfb5b5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 470604, guid: 569fc14f8601a4b65b2e5a612ddfb5b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.58090895
@@ -994,55 +914,13 @@ GameObject:
   - component: {fileID: 1778324043}
   - component: {fileID: 1778324042}
   - component: {fileID: 1778324041}
-  - component: {fileID: 1778324040}
-  - component: {fileID: 1778324039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1778324039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778324038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1778324040}
-          m_MethodName: TogglePickUp
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 609852340}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1778324040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778324038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72aa5b206a55f9428e55c9bfc9f02ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1778324041
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1139,46 +1017,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1731302399}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1825184618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825184617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1825184619}
-          m_MethodName: TogglePickUp
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 609852340}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &1825184619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825184617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72aa5b206a55f9428e55c9bfc9f02ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1825184620
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1206,6 +1044,7 @@ GameObject:
   - component: {fileID: 1940613617}
   - component: {fileID: 1940613616}
   - component: {fileID: 1940613615}
+  - component: {fileID: 1940613618}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1260,3 +1099,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940613618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940613614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94943f4b8952c9c46a1cefb5a9539812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewingPosition: {fileID: 370595563}
+  holdingPosition: {fileID: 609852340}
+  pickUpButton: 330
+  pickUpDistance: 5
+  pickUpSpeed: 15

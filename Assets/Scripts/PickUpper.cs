@@ -14,8 +14,10 @@ public class PickUpper : MonoBehaviour
     private KeyCode pickUpButtonKeyboard = KeyCode.E;
     private KeyCode moveBackwardButtonController = KeyCode.Joystick1Button1;
     private KeyCode moveForwardButtonController = KeyCode.Joystick1Button9;
+    private KeyCode rotateObjectController = KeyCode.Joystick1Button3;
     private float pickUpDistance = 5.0f;
     private float pickUpSpeed = 15.0f;
+    private float rotateObjectSpeed = 120.0f;
     private float moveForwardBackwardSpeed = 1.0f;
     private float maxMoveForwardBackwardDistance = 1.5f;
 
@@ -51,6 +53,13 @@ public class PickUpper : MonoBehaviour
                 holdingPosition.position += holdingDistanceDelta * (holdingPosition.position - viewingPosition.position).normalized;
             }
         }
+        if (Input.GetKey(rotateObjectController))
+		{
+            heldObject.freezeRotation = false;
+            Quaternion rotationDelta = Quaternion.Euler(new Vector3(0, rotateObjectSpeed * Time.deltaTime, 0));
+            heldObject.MoveRotation(heldObject.rotation * rotationDelta);
+            heldObject.freezeRotation = true;
+		}
     }
 
     void DropObject()
@@ -64,42 +73,6 @@ public class PickUpper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-		{
-            Debug.Log("Button 1");
-		}
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-        {
-            Debug.Log("Button 2");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-        {
-            Debug.Log("Button 3");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
-        {
-            Debug.Log("Button 4");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
-        {
-            Debug.Log("Button 5");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button6))
-        {
-            Debug.Log("Button 6");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button7))
-        {
-            Debug.Log("Button 7");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button8))
-        {
-            Debug.Log("Button 8");
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button9))
-        {
-            Debug.Log("Button 9");
-        }
         if (heldObject != null)
 		{
             HoldObject();

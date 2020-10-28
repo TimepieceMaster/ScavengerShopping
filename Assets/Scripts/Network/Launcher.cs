@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VR;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	}
     private void Start()
     {
+		UnityEngine.XR.XRSettings.enabled = false;
 		MenuManager.Instance.OpenMenu("loading");
         print("Connecting to server.");
         PhotonNetwork.GameVersion = "0.0.1";
@@ -89,6 +91,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	
 	public void StartGame()
 	{
+		UnityEngine.XR.XRSettings.enabled = true;
 		PhotonNetwork.LoadLevel(1);
 	}
 

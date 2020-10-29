@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6563228}
-  m_Layer: 0
+  - component: {fileID: 5164921591415393470}
+  m_Layer: 8
   m_Name: SMGP_PRE_Flour_1024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,3 +94,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.19057569, y: 0.25668162, z: 0.11324172}
   m_Center: {x: -0.0015738532, y: 0.12834066, z: -0.00000051409006}
+--- !u!54 &5164921591415393470
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

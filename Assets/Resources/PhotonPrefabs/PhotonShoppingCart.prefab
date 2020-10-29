@@ -464,10 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewingPosition: {fileID: 8370693122552793124}
   holdingPosition: {fileID: 6966489955457322285}
-  pickUpButtonController: 350
-  pickUpButtonKeyboard: 101
-  pickUpDistance: 5
-  pickUpSpeed: 15
+  holdingDistance: 0
 --- !u!1 &8370693122609305329
 GameObject:
   m_ObjectHideFlags: 0

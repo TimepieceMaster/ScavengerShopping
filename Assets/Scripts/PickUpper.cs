@@ -36,8 +36,8 @@ public class PickUpper : MonoBehaviour
             // make sure we unhighlight the object
             if (currentPickupabbleLookingAt != null)
 			{
-                Material previousObjectMaterial = currentPickupabbleLookingAt.GetComponent<Renderer>().material;
-                previousObjectMaterial.color = Color.white;
+                SetColorPickuppable(currentPickupabbleLookingAt, Color.white);
+                currentPickupabbleLookingAt = null;
             }
         }
 	}
@@ -94,8 +94,8 @@ public class PickUpper : MonoBehaviour
 			{
                 // set object color to highlight color
                 pickuppableObject = raycastHit.transform.gameObject;
-                Material objectMaterial = pickuppableObject.GetComponent<Renderer>().material;
-                objectMaterial.color = objectHighlightColor;
+                SetColorPickuppable(pickuppableObject, objectHighlightColor);
+
                 currentPickupabbleLookingAt = pickuppableObject;
             }
             // we're looking at something new
@@ -103,12 +103,10 @@ public class PickUpper : MonoBehaviour
 			{
                 // set new object color to highlight color
                 pickuppableObject = raycastHit.transform.gameObject;
-                Material objectMaterial = pickuppableObject.GetComponent<Renderer>().material;
-                objectMaterial.color = objectHighlightColor;
+                SetColorPickuppable(pickuppableObject, objectHighlightColor);
 
                 // unhighlight object previously looking at
-                Material previousObjectMaterial = currentPickupabbleLookingAt.GetComponent<Renderer>().material;
-                previousObjectMaterial.color = Color.white;
+                SetColorPickuppable(currentPickupabbleLookingAt, Color.white);
 
                 // make new object currently looked at object
                 currentPickupabbleLookingAt = pickuppableObject;
@@ -120,12 +118,20 @@ public class PickUpper : MonoBehaviour
             // unhighlight whatever we were previously looking at (if anything)
             if (currentPickupabbleLookingAt != null)
 			{
-                Material previousObjectMaterial = currentPickupabbleLookingAt.GetComponent<Renderer>().material;
-                previousObjectMaterial.color = Color.white;
+                SetColorPickuppable(currentPickupabbleLookingAt, Color.white);
                 currentPickupabbleLookingAt = null;
 			}
 		}
     }
+
+    void SetColorPickuppable(GameObject pickuppable, Color c)
+	{
+        Material[] objectMaterials = pickuppable.GetComponent<Renderer>().materials;
+        foreach (Material m in objectMaterials)
+		{
+            m.color = c;
+		}
+	}
 
     // Update is called once per frame
     void Update()

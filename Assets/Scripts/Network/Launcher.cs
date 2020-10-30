@@ -17,6 +17,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public Transform playerListContent;
 	public GameObject PlayerListItemPrefab;
 	public GameObject startGameButton;
+	public InputField playerNameInputField;
 	void Awake()
 	{
 		Instance = this;
@@ -60,6 +61,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 	
 	public override void OnJoinedRoom()
 	{
+		if (playerNameInputField.text != "") {
+			PhotonNetwork.NickName = playerNameInputField.text;
+		}
+		
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 		Player[] players = PhotonNetwork.PlayerList;

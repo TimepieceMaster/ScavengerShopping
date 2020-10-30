@@ -28,5 +28,6 @@ public class Move : MonoBehaviour
         float curSpeed = speed * Input.GetAxis("Vertical");
         controller.SimpleMove(forward * curSpeed);
         //source:https://docs.unity3d.com/ScriptReference/CharacterController.SimpleMove.html
+
     }
 }

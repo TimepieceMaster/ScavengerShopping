@@ -10,13 +10,17 @@ public class PickUpper : MonoBehaviour
     public Transform holdingPosition;
     public float holdingDistance = 0f;
     private Rigidbody heldObject;
+    private UnityEngine.Collider heldObjectCollider;
     private GameObject currentPickupabbleLookingAt;
     private int onlyPickUppableObjectsMask = 1 << 8;
-    private KeyCode pickUpButtonController = KeyCode.Joystick1Button0;
+    private KeyCode pickUpButtonController = KeyCode.JoystickButton0;
     private KeyCode pickUpButtonKeyboard = KeyCode.E;
-    private KeyCode moveBackwardButtonController = KeyCode.Joystick1Button1;
-    private KeyCode moveForwardButtonController = KeyCode.Joystick1Button9;
-    private KeyCode rotateObjectController = KeyCode.Joystick1Button3;
+    private KeyCode moveBackwardButtonKeyboard = KeyCode.R;
+    private KeyCode moveForwardButtonKeyboard = KeyCode.F;
+    private KeyCode rotateObjectKeyboard = KeyCode.Q;
+    private KeyCode moveBackwardButtonController = KeyCode.JoystickButton1;
+    private KeyCode moveForwardButtonController = KeyCode.JoystickButton7;
+    private KeyCode rotateObjectController = KeyCode.JoystickButton2;
     private float pickUpDistance = 5.0f;
     private float pickUpSpeed = 15.0f;
     private float rotateObjectSpeed = 120.0f;
@@ -33,6 +37,10 @@ public class PickUpper : MonoBehaviour
             heldObject = raycastHit.rigidbody;
             heldObject.freezeRotation = true;
 
+            // disable its collider
+            heldObjectCollider = raycastHit.collider;
+            heldObjectCollider.enabled = false;
+
             // make sure we unhighlight the object
             if (currentPickupabbleLookingAt != null)
 			{
@@ -45,7 +53,7 @@ public class PickUpper : MonoBehaviour
     void HoldObject()
 	{
         heldObject.velocity = pickUpSpeed * (holdingPosition.position - heldObject.position);
-        if(Input.GetKey(moveBackwardButtonController))
+        if(Input.GetKey(moveBackwardButtonController) || Input.GetKey(moveBackwardButtonKeyboard))
 		{
             if (holdingDistance < maxMoveForwardBackwardDistance)
 			{
@@ -54,7 +62,7 @@ public class PickUpper : MonoBehaviour
                 holdingPosition.position += holdingDistanceDelta * (holdingPosition.position - viewingPosition.position).normalized;
             }
 		}
-        if (Input.GetKey(moveForwardButtonController))
+        if (Input.GetKey(moveForwardButtonController) || Input.GetKey(moveForwardButtonKeyboard))
         {
             if (holdingDistance > -maxMoveForwardBackwardDistance)
             {
@@ -63,7 +71,7 @@ public class PickUpper : MonoBehaviour
                 holdingPosition.position += holdingDistanceDelta * (holdingPosition.position - viewingPosition.position).normalized;
             }
         }
-        if (Input.GetKey(rotateObjectController))
+        if (Input.GetKey(rotateObjectController) || Input.GetKey(rotateObjectKeyboard))
 		{
             heldObject.freezeRotation = false;
             Quaternion rotationDelta = Quaternion.Euler(new Vector3(0, rotateObjectSpeed * Time.deltaTime, 0));
@@ -75,6 +83,9 @@ public class PickUpper : MonoBehaviour
     void DropObject()
 	{
         heldObject.freezeRotation = false;
+
+        heldObjectCollider.enabled = true;
+
         heldObject = null;
         holdingPosition.position -= holdingDistance * (holdingPosition.position - viewingPosition.position).normalized;
         holdingDistance = 0;

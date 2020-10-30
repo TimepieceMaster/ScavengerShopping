@@ -21,7 +21,7 @@ public class PickUpper : MonoBehaviour
     private KeyCode moveBackwardButtonController = KeyCode.JoystickButton1;
     private KeyCode moveForwardButtonController = KeyCode.JoystickButton7;
     private KeyCode rotateObjectController = KeyCode.JoystickButton2;
-    private float pickUpDistance = 5.0f;
+    private float pickUpDistance = 2.5f;
     private float pickUpSpeed = 15.0f;
     private float rotateObjectSpeed = 120.0f;
     private float moveForwardBackwardSpeed = 1.0f;

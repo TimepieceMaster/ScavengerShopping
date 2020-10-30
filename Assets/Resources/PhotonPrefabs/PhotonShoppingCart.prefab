@@ -266,11 +266,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8370693122608887529}
   - component: {fileID: 8370693123393624060}
-  - component: {fileID: 7067267663508751457}
   - component: {fileID: 1049998796068898533}
-  - component: {fileID: 4083175463208283009}
   - component: {fileID: 8550598963929523855}
   - component: {fileID: 5540517208071163004}
+  - component: {fileID: 2115767734855634239}
   m_Layer: 0
   m_Name: PhotonShoppingCart
   m_TagString: Player
@@ -304,36 +303,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
+  m_Height: 0
+  m_Radius: 0
   m_SlopeLimit: 45
   m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.5, z: 0}
---- !u!114 &7067267663508751457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370693122609230545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 4083175463208283009}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &1049998796068898533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,21 +324,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotateSpeed: 1
---- !u!114 &4083175463208283009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8370693122609230545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
 --- !u!114 &8550598963929523855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +351,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a44b70f26d97f4fb940afbc3028283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2115767734855634239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370693122609230545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  observableSearch: 2
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8370693122609305329
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +393,7 @@ GameObject:
   - component: {fileID: 653179788032703555}
   - component: {fileID: 8909196132847849454}
   - component: {fileID: 4311464402947459515}
+  - component: {fileID: 1383261636633608182}
   m_Layer: 0
   m_Name: ShoppingCart
   m_TagString: Untagged
@@ -600,6 +584,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.17060256, y: 0.7045892, z: 0.95447546}
   m_Center: {x: 0.28184536, y: 0.3522946, z: -0.012599975}
+--- !u!114 &1383261636633608182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370693122609305329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1001 &8370693123488938855
 PrefabInstance:
   m_ObjectHideFlags: 0

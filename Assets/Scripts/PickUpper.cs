@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Json;
 using UnityEngine;
+using Photon.Pun;
 
 public class PickUpper : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PickUpper : MonoBehaviour
     private float moveForwardBackwardSpeed = 1.0f;
     private float maxMoveForwardBackwardDistance = 1.5f;
     private Color objectHighlightColor = Color.red;
+    PhotonView PV;
 
     void AttemptPickup()
 	{
@@ -144,9 +146,17 @@ public class PickUpper : MonoBehaviour
 		}
 	}
 
+    void Awake()
+	{
+		PV = GetComponent<PhotonView>();
+	}
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if(!PV.IsMine) {
+			return;
+        }
         // holding an object
         if (heldObject != null)
 		{

@@ -21,14 +21,13 @@ public class CartMove : MonoBehaviour
         if(!PV.IsMine)
 		{
 			Destroy(GetComponentInChildren<Camera>().gameObject);
-			Destroy(rb);
+			//Destroy(rb);
 		}
         GetComponentInChildren<TextMesh>().text = PhotonNetwork.NickName;
-        cam = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!PV.IsMine) {
 			return;
@@ -38,7 +37,9 @@ public class CartMove : MonoBehaviour
         rb.MoveRotation(rb.rotation * rotationDelta);
 
         // Move forward / backward
-        Vector3 forward;
-        rb.position += speed * Input.GetAxis("Vertical") * Time.deltaTime * -transform.forward;
+        Vector3 forward = rb.transform.TransformDirection(Vector3.forward);
+        forward.y = 0;
+        //Vector3 forward;
+        rb.position += speed * Input.GetAxis("Vertical") * Time.deltaTime * - forward;
     }
 }

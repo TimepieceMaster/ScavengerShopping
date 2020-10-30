@@ -17,6 +17,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public Transform playerListContent;
 	public GameObject PlayerListItemPrefab;
 	public GameObject startGameButton;
+
+	public InputField PlayerNameInputText;
 	void Awake()
 	{
 		Instance = this;
@@ -39,8 +41,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
 	{
 		MenuManager.Instance.OpenMenu("title");
-		Debug.Log("Joined Lobby");
-		PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+		print("Joined Lobby.");
+		if (PlayerNameInputText.text == "") {
+			PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+		}
+		else {
+			PhotonNetwork.NickName = PlayerNameInputText.text ;
+		}
+		
 	}
 
     public override void OnDisconnected(DisconnectCause cause) {
@@ -60,6 +68,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 	
 	public override void OnJoinedRoom()
 	{
+		if (PlayerNameInputText.text == "") {
+			PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+		}
+		else {
+			PhotonNetwork.NickName = PlayerNameInputText.text ;
+		}
+
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 		Player[] players = PhotonNetwork.PlayerList;
@@ -131,4 +146,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 	{
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
 	}
+
+	public void doExitGame() {
+     	Application.Quit();
+ 	}
 }

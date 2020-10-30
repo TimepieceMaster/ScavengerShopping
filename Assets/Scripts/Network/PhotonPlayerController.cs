@@ -33,7 +33,6 @@ public class PhotonPlayerController : MonoBehaviour
 		}
 
         cam = GetComponentInChildren<Camera>();
-        GetComponentInChildren<TextMesh>().text = PhotonNetwork.NickName;
     }
 
     // Update is called once per frame

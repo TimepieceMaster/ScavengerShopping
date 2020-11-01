@@ -17,7 +17,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public Transform playerListContent;
 	public GameObject PlayerListItemPrefab;
 	public GameObject startGameButton;
-	public InputField playerNameInputField;
 	void Awake()
 	{
 		Instance = this;
@@ -131,17 +130,5 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
-	}
-
-	public void NameChange()
-	{
-		if (playerNameInputField.text != "") {
-			PhotonNetwork.NickName = playerNameInputField.text;
-		}
-	}
-
-	public void QuitGame()
-	{
-		Application.Quit();
 	}
 }

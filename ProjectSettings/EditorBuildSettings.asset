@@ -23,7 +23,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TitleTest.unity
     guid: 5b4923f464b54574e93bac10aa8af6ba
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PhotonStoreTest.unity
     guid: d4a91d75b167c0844ac6403c9f419b6a
+  - enabled: 1
+    path: Assets/Scenes/FinalStore.unity
+    guid: 6976ea933a8494149b49d612d3082da4
   m_configObjects: {}

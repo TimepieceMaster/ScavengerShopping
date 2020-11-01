@@ -61,10 +61,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 	
 	public override void OnJoinedRoom()
 	{
-		if (playerNameInputField.text != "") {
-			PhotonNetwork.NickName = playerNameInputField.text;
-		}
-		
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 		Player[] players = PhotonNetwork.PlayerList;
@@ -135,5 +131,17 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+	}
+
+	public void NameChange()
+	{
+		if (playerNameInputField.text != "") {
+			PhotonNetwork.NickName = playerNameInputField.text;
+		}
+	}
+
+	public void QuitGame()
+	{
+		Application.Quit();
 	}
 }

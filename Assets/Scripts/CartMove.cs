@@ -23,7 +23,7 @@ public class CartMove : MonoBehaviour
 			Destroy(GetComponentInChildren<Camera>().gameObject);
 			//Destroy(rb);
 		}
-        GetComponentInChildren<TextMesh>().text = PhotonNetwork.NickName;
+        GetComponentInChildren<TextMesh>().text = PV.Owner.NickName;
     }
 
     // Update is called once per frame

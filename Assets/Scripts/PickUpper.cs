@@ -124,6 +124,10 @@ public class PickUpper : MonoBehaviour
                 // make new object currently looked at object
                 currentPickupabbleLookingAt = pickuppableObject;
             }
+
+            if (currentPickupabbleLookingAt.GetComponent<PhotonView>() != null) {
+                currentPickupabbleLookingAt.GetComponent<PhotonView>().RequestOwnership();
+            }
         }
         // no longer looking at a pickuppable object
         else
@@ -162,9 +166,8 @@ public class PickUpper : MonoBehaviour
 		{
             HoldObject();
         }
-        // check to see if looking at object that could be held
         else
-        {
+		{
             LookForPickuppableObjects();
         }
         // trying to hold an object
@@ -179,5 +182,6 @@ public class PickUpper : MonoBehaviour
                 DropObject();
 			}
 		}
+       
     }
 }

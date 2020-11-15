@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class InsideCartTrigger : MonoBehaviour
 {
+	ObjectsInCarts objectsInAllCarts;
 	List<UnityEngine.Collider> objectsInCart;
 
 	private void Start()
 	{
+		objectsInAllCarts = FindObjectOfType<ObjectsInCarts>();
 		objectsInCart = new List<UnityEngine.Collider>();
 	}
 
 	private void Update()
 	{
-		objectsInCart.RemoveAll(ColliderDisabled);
+		for (int i = 0; i < objectsInCart.Count; ++i)
+		{
+			if (!objectsInCart[i].enabled)
+			{
+				objectsInAllCarts.RemoveFromList(ObjectsInCarts.PreProcess(objectsInCart[i].gameObject.name));
+				objectsInCart.RemoveAt(i);
+				--i;
+			}
+		}
 	}
 
 	private static bool ColliderDisabled(UnityEngine.Collider c)
@@ -24,10 +34,12 @@ public class InsideCartTrigger : MonoBehaviour
 	private void OnTriggerEnter(UnityEngine.Collider other)
 	{
 		objectsInCart.Add(other);
+		objectsInAllCarts.AddToList(ObjectsInCarts.PreProcess(other.gameObject.name));
 	}
 
 	private void OnTriggerExit(UnityEngine.Collider other)
 	{
+		objectsInAllCarts.RemoveFromList(ObjectsInCarts.PreProcess(other.gameObject.name));
 		objectsInCart.Remove(other);
 	}
 }

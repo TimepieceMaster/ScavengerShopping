@@ -14,14 +14,14 @@ public class PickUpper : MonoBehaviour
     private UnityEngine.Collider heldObjectCollider;
     private GameObject currentPickupabbleLookingAt;
     private int onlyPickUppableObjectsMask = 1 << 8;
-    private KeyCode pickUpButtonController = KeyCode.JoystickButton3;
+    private KeyCode pickUpButtonController = KeyCode.JoystickButton3; //KeyCode.JoystickButton0; 
     private KeyCode pickUpButtonKeyboard = KeyCode.E;
     private KeyCode moveBackwardButtonKeyboard = KeyCode.R;
     private KeyCode moveForwardButtonKeyboard = KeyCode.F;
     private KeyCode rotateObjectKeyboard = KeyCode.Q;
-    private KeyCode moveBackwardButtonController = KeyCode.JoystickButton1;
-    private KeyCode moveForwardButtonController = KeyCode.JoystickButton10;
-    private KeyCode rotateObjectController = KeyCode.JoystickButton8;
+    private KeyCode moveBackwardButtonController = KeyCode.JoystickButton1; //KeyCode.JoystickButton1; 
+    private KeyCode moveForwardButtonController = KeyCode.JoystickButton10; //KeyCode.JoystickButton7;
+    private KeyCode rotateObjectController =  KeyCode.JoystickButton8; //KeyCode.JoystickButton2;
     private float pickUpDistance = 2.5f;
     private float pickUpSpeed = 15.0f;
     private float rotateObjectSpeed = 120.0f;

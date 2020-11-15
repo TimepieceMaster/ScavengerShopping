@@ -33,13 +33,19 @@ public class InsideCartTrigger : MonoBehaviour
 
 	private void OnTriggerEnter(UnityEngine.Collider other)
 	{
-		objectsInCart.Add(other);
-		objectsInAllCarts.AddToList(ObjectsInCarts.PreProcess(other.gameObject.name));
+		if (other != null)
+		{
+			objectsInCart.Add(other);
+			objectsInAllCarts.AddToList(ObjectsInCarts.PreProcess(other.gameObject.name));
+		}
 	}
 
 	private void OnTriggerExit(UnityEngine.Collider other)
 	{
-		objectsInAllCarts.RemoveFromList(ObjectsInCarts.PreProcess(other.gameObject.name));
-		objectsInCart.Remove(other);
+		if (other != null)
+		{
+			objectsInAllCarts.RemoveFromList(ObjectsInCarts.PreProcess(other.gameObject.name));
+			objectsInCart.Remove(other);
+		}
 	}
 }

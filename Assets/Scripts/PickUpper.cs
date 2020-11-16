@@ -24,7 +24,7 @@ public class PickUpper : MonoBehaviour
     private KeyCode rotateObjectController = KeyCode.JoystickButton2;//8; //KeyCode.JoystickButton2;
     private bool pickUpKeyPressed = false;
     private float pickUpDistance = 2.5f;
-    private float pickUpSpeed = 30.0f;
+    private float pickUpSpeed = 480.0f;
     private float rotateObjectSpeed = 120.0f;
     private float moveForwardBackwardSpeed = 1.0f;
     private float maxMoveForwardBackwardDistance = 1.5f;
@@ -55,7 +55,7 @@ public class PickUpper : MonoBehaviour
 
     void HoldObject()
 	{
-        heldObject.velocity = pickUpSpeed * (holdingPosition.position - heldObject.position).normalized * Time.deltaTime;
+        heldObject.velocity = pickUpSpeed * (holdingPosition.position - heldObject.position) * Time.deltaTime;
 
         if(Input.GetKey(moveBackwardButtonController) || Input.GetKey(moveBackwardButtonKeyboard))
 		{

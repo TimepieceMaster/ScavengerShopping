@@ -8,6 +8,8 @@ using Photon.Pun;
 
 public class UI : MonoBehaviour
 {
+    ObjectsInCarts objectsInAllCarts;
+
     public Text Menu;
     public Text Ing1;
     public Text Ing2;
@@ -16,6 +18,8 @@ public class UI : MonoBehaviour
     public Text Ing5;
     public Text Ing6;
     public Text BonusSushi;
+
+    public Text ItemsInCartText;
 
     string[,] MenuList = new string[10, 7] {{"Pancake","Egg","Flour","Milk","Sugar","Whipped Cream","Chocolate Syrup"},
                                       {"Chicken Soup","Chicken","Soup","Rice ","Salt","Salt Crackers","Sugar"},
@@ -30,6 +34,8 @@ public class UI : MonoBehaviour
     string[] Sushi = new string[5] {"Chutoro Sushi","Ebi Sushi","Nigiri Sushi","Piece Sushi","Tamagoyaki Sushi"};
 
     void Start() {
+
+        objectsInAllCarts = FindObjectOfType<ObjectsInCarts>();
 
         int num = Random.Range(0, 9);
         int bonus = Random.Range(0, 4);
@@ -49,6 +55,11 @@ public class UI : MonoBehaviour
         SetMenuText(num, bonus);
 
     }
+
+    void Update()
+	{
+        ItemsInCartText.text = objectsInAllCarts.GetItemsText();
+	}
 
     void SetMenuText(int num,int bonus) {
         Menu.text = MenuList[num,0];

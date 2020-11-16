@@ -56,6 +56,9 @@ public class ObjectsInCarts : MonoBehaviour
         // remove _1024
         processed = processed.Replace("_1024", "");
 
+        // remove (Clone)
+        processed = processed.Replace("(Clone)", "");
+
         return processed;
 	}
 }

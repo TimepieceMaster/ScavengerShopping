@@ -25,6 +25,16 @@ public class ObjectsInCarts : MonoBehaviour
         }
     }
 
+    public string GetItemsText()
+	{
+        string str = "\n";
+        foreach (string s in objectsInAllCarts)
+        {
+            str += s + "\n\n";
+        }
+        return str;
+    }
+
 	// Add passed in string to the list
 	public void AddToList(string newObject)
 	{

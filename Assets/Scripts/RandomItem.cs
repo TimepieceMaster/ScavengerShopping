@@ -6,6 +6,8 @@ public class RandomItem : MonoBehaviour
 { 
     List<GameObject> prefabList = new List<GameObject>();
     List<Transform> locationList = new List<Transform>();
+    List<GameObject> TprefabList = new List<GameObject>();
+    List<Transform> TlocationList = new List<Transform>();
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
@@ -48,7 +50,22 @@ public class RandomItem : MonoBehaviour
     public GameObject prefab40;
     public GameObject prefab41;
     public GameObject prefab42;
-    private int[] RandomArray = new int[192]; 
+
+    public GameObject Tprefab1;
+    public GameObject Tprefab2;
+    public GameObject Tprefab3;
+    public GameObject Tprefab4;
+    public GameObject Tprefab5;
+    public GameObject Tprefab6;
+    public GameObject Tprefab7;
+    public GameObject Tprefab8;
+    public GameObject Tprefab9;
+    public GameObject Tprefab10;
+    public GameObject Tprefab11;
+    public GameObject Tprefab12;
+
+    private int[] RandomArray = new int[192];
+    private int[] RandomTArray = new int[36];
     public Transform S1Location1;
     public Transform S1Location2;
     public Transform S1Location3;
@@ -241,6 +258,44 @@ public class RandomItem : MonoBehaviour
     public Transform S16Location10;
     public Transform S16Location11;
     public Transform S16Location12;
+
+    public Transform T1Location1;
+    public Transform T1Location2;
+    public Transform T1Location3;
+    public Transform T1Location4;
+    public Transform T1Location5;
+    public Transform T1Location6;
+    public Transform T2Location1;
+    public Transform T2Location2;
+    public Transform T2Location3;
+    public Transform T2Location4;
+    public Transform T2Location5;
+    public Transform T2Location6;
+    public Transform T3Location1;
+    public Transform T3Location2;
+    public Transform T3Location3;
+    public Transform T3Location4;
+    public Transform T3Location5;
+    public Transform T3Location6;
+    public Transform T4Location1;
+    public Transform T4Location2;
+    public Transform T4Location3;
+    public Transform T4Location4;
+    public Transform T4Location5;
+    public Transform T4Location6;
+    public Transform T5Location1;
+    public Transform T5Location2;
+    public Transform T5Location3;
+    public Transform T5Location4;
+    public Transform T5Location5;
+    public Transform T5Location6;
+    public Transform T6Location1;
+    public Transform T6Location2;
+    public Transform T6Location3;
+    public Transform T6Location4;
+    public Transform T6Location5;
+    public Transform T6Location6;
+
     void Start()
     {
         prefabList.Add(prefab1);
@@ -285,6 +340,19 @@ public class RandomItem : MonoBehaviour
         prefabList.Add(prefab40);
         prefabList.Add(prefab41);
         prefabList.Add(prefab42);
+
+        TprefabList.Add(Tprefab1);
+        TprefabList.Add(Tprefab2);
+        TprefabList.Add(Tprefab3);
+        TprefabList.Add(Tprefab4);
+        TprefabList.Add(Tprefab5);
+        TprefabList.Add(Tprefab6);
+        TprefabList.Add(Tprefab7);
+        TprefabList.Add(Tprefab8);
+        TprefabList.Add(Tprefab9);
+        TprefabList.Add(Tprefab10);
+        TprefabList.Add(Tprefab11);
+        TprefabList.Add(Tprefab12);
 
         locationList.Add(S1Location1);
         locationList.Add(S1Location2);
@@ -479,6 +547,43 @@ public class RandomItem : MonoBehaviour
         locationList.Add(S16Location11);
         locationList.Add(S16Location12);
 
+        TlocationList.Add(T1Location1);
+        TlocationList.Add(T1Location2);
+        TlocationList.Add(T1Location3);
+        TlocationList.Add(T1Location4);
+        TlocationList.Add(T1Location5);
+        TlocationList.Add(T1Location6);
+        TlocationList.Add(T2Location1);
+        TlocationList.Add(T2Location2);
+        TlocationList.Add(T2Location3);
+        TlocationList.Add(T2Location4);
+        TlocationList.Add(T2Location5);
+        TlocationList.Add(T2Location6);
+        TlocationList.Add(T3Location1);
+        TlocationList.Add(T3Location2);
+        TlocationList.Add(T3Location3);
+        TlocationList.Add(T3Location4);
+        TlocationList.Add(T3Location5);
+        TlocationList.Add(T3Location6);
+        TlocationList.Add(T4Location1);
+        TlocationList.Add(T4Location2);
+        TlocationList.Add(T4Location3);
+        TlocationList.Add(T4Location4);
+        TlocationList.Add(T4Location5);
+        TlocationList.Add(T4Location6);
+        TlocationList.Add(T5Location1);
+        TlocationList.Add(T5Location2);
+        TlocationList.Add(T5Location3);
+        TlocationList.Add(T5Location4);
+        TlocationList.Add(T5Location5);
+        TlocationList.Add(T5Location6);
+        TlocationList.Add(T6Location1);
+        TlocationList.Add(T6Location2);
+        TlocationList.Add(T6Location3);
+        TlocationList.Add(T6Location4);
+        TlocationList.Add(T6Location5);
+        TlocationList.Add(T6Location6);
+
 
 
         //initialling array from 0 to 191
@@ -499,11 +604,22 @@ public class RandomItem : MonoBehaviour
         {
             Instantiate(prefabList[RandomArray[n] % 42],locationList[n].position, prefabList[RandomArray[n] % 42].transform.rotation);
         }
-        //Debug.Log(RandomArray[0]%42);
-        //Instantiate(prefabList[1],locationList[1].position, prefabList[1].transform.rotation);
-        //Instantiate(prefabList[2], locationList[2].position, prefabList[2].transform.rotation);
-        //Instantiate(prefabList[3], locationList[3].position, prefabList[3].transform.rotation);
 
+        for (int a = 0; a < 36; a++)
+        {
+            RandomTArray[a] = a;
+        }
 
+        for (int b = RandomTArray.Length - 1; b >= 0; b--)
+        {
+            int rn = Random.Range(0, b);
+            int temp = RandomTArray[b];
+            RandomTArray[b] = RandomTArray[rn];
+            RandomTArray[rn] = temp;
+        }
+        for (int n = 0; n < 36; n++)
+        {
+            Instantiate(TprefabList[RandomTArray[n] % 12], TlocationList[n].position, TprefabList[RandomTArray[n] % 12].transform.rotation);
+        }
     }
 }

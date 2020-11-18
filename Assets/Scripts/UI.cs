@@ -71,4 +71,16 @@ public class UI : MonoBehaviour
         Ing6.text = MenuList[num,6];
         BonusSushi.text = Sushi[bonus];
     }
+
+    public List<string> GetIngredientNames()
+	{
+        List<string> itemsToWin = new List<string>();
+        itemsToWin.Add(Ing1.text);
+        itemsToWin.Add(Ing2.text);
+        itemsToWin.Add(Ing3.text);
+        itemsToWin.Add(Ing4.text);
+        itemsToWin.Add(Ing5.text);
+        itemsToWin.Add(Ing6.text);
+        return itemsToWin;
+	}
 }

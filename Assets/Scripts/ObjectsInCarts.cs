@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectsInCarts : MonoBehaviour
 {
-    List<string> objectsInAllCarts;
+    public List<string> objectsInAllCarts;
     static Dictionary<string, string> prefabToItemName;
 
 

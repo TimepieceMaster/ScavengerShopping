@@ -21,17 +21,17 @@ public class UI : MonoBehaviour
 
     public Text ItemsInCartText;
 
-    string[,] MenuList = new string[10, 7] {{"Pancake","Egg","Flour","Milk","Sugar","Whipped Cream","Chocolate Syrup"},
-                                      {"Chicken Soup","Chicken","Soup","Rice ","Salt","Salt Crackers","Sugar"},
-                                      {"Bread","Bread","Jam","Cheese","Mustard","Mayonnaise","Peanut Butter"},
+    string[,] MenuList = new string[10, 7] {{"Pancake","Eggs","Flour","Milk","Sugar","Whipped Cream","Chocolate Syrup"},
+                                      {"Chicken Soup","Chicken","Soup","Rice","Salt","Salt Crackers","Sugar"},
+                                      {"Sandwich","Bread","Jam","Cheese","Mustard","Mayonnaise","Peanut Butter"},
                                       {"Breakfast","Cereal","Coffee","Macaroni & Cheese","Creme Fraiche","Salami","Pudding"},
-                                      {"Spaghetti","Pasta ","Tuna","Salt","Soda","Bottle Beans","Ice cream"},
-                                      {"Fast Food","Chicken Nuggets","French Fries","Fish Sticks","Soda","Katchup","Cookies"},
-                                      {"Noodle","Noodles","Luncheon Meat","Pudding","Juice","Milk","Egg"},
-                                      {"Baked Salmon","Salmon","Potato","Salt","Butter","Beer Can","Lolipop"},
-                                      {"Rice Bowl","Minced Meat","Rice","Potato","Salt","Six pack","Candy Bar"},
-                                      {"BBQ Party","Cutlet","Candy Bar","Lolipop","Potato Chips","Bubblegum","Creamy Buns" }};
-    string[] Sushi = new string[5] {"Chutoro Sushi","Ebi Sushi","Nigiri Sushi","Piece Sushi","Tamagoyaki Sushi"};
+                                      {"Spaghetti","Pasta","Tuna","Salt","Soda","Canned Beans","Ice cream"},
+                                      {"Fast Food","Chicken Nuggets","French Fries","Fish Sticks","Soda","Ketchup","Cookies"},
+                                      {"Noodle Dish","Noodles","Luncheon Meat","Pudding","Juice","Milk","Eggs"},
+                                      {"Baked Salmon","Salmon","Potatoes","Salt","Butter","Beer Can","Lollipop"},
+                                      {"Rice Bowl","Minced Meat","Rice","Potatoes","Salt","Six Pack","Candy Bar"},
+                                      {"BBQ Party","Cutlets","Candy Bar","Lollipop","Potato Chips","Bubblegum","Creamy Buns" }};
+    string[] Sushi = new string[5] {"Chutoro Sushi","Ebi Sushi","Nigiri Sushi","Maki Sushi","Tamagoyaki Sushi"};
 
     void Start() {
 

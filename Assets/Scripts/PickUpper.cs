@@ -7,6 +7,7 @@ using Photon.Pun;
 
 public class PickUpper : MonoBehaviour
 {
+    public AudioSource pickUpSFX;
     public Transform viewingPosition;
     public Transform holdingPosition;
     public float holdingDistance = 0f;
@@ -50,6 +51,9 @@ public class PickUpper : MonoBehaviour
                 SetColorPickuppable(currentPickupabbleLookingAt, Color.white);
                 currentPickupabbleLookingAt = null;
             }
+
+            // play sfx
+            pickUpSFX.Play();
         }
 	}
 
@@ -93,6 +97,8 @@ public class PickUpper : MonoBehaviour
         heldObject = null;
         holdingPosition.position -= holdingDistance * (holdingPosition.position - viewingPosition.position).normalized;
         holdingDistance = 0;
+
+        pickUpSFX.Play();
 	}
 
     void LookForPickuppableObjects()
@@ -155,6 +161,11 @@ public class PickUpper : MonoBehaviour
     void Awake()
 	{
 		PV = GetComponent<PhotonView>();
+	}
+
+	private void Start()
+	{
+        pickUpSFX = GetComponent<AudioSource>();
 	}
 
 	private void Update()

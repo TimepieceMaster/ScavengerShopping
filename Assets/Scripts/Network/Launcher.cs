@@ -33,7 +33,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster() {
         print("Connected to server.");
-        PhotonNetwork.JoinLobby();
+		if(!PhotonNetwork.InLobby) {
+			PhotonNetwork.JoinLobby();
+		}
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 

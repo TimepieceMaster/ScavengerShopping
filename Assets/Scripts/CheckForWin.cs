@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class CheckForWin : MonoBehaviour
+public class CheckForWin : MonoBehaviourPunCallbacks
 {
     bool gameWon = false;
     AudioSource gameWinSFX;
@@ -48,9 +50,30 @@ public class CheckForWin : MonoBehaviour
                 return;
 			}
         }
+
         gameWon = true;
         AudioSource music = GameObject.Find("Music").GetComponent<AudioSource>();
         music.Stop();
         gameWinSFX.Play();
+
+        StartCoroutine(WaitTenSec());
+    }
+
+    IEnumerator WaitTenSec() {
+        yield return new WaitForSeconds(10f);
+        Destroy(RoomManager.Instance);
+        PhotonNetwork.LeaveRoom();
+        //PhotonNetwork.Disconnect();
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.Disconnect();
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

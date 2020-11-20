@@ -81,6 +81,7 @@ public class UI : MonoBehaviour
         itemsToWin.Add(Ing4.text);
         itemsToWin.Add(Ing5.text);
         itemsToWin.Add(Ing6.text);
+        itemsToWin.Add(BonusSushi.text);
         return itemsToWin;
 	}
 }

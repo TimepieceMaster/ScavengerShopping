@@ -106,6 +106,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 	
 	public void JoinRoom(RoomInfo info)
 	{
+		UnityEngine.XR.XRSettings.enabled = true;
 		PhotonNetwork.JoinRoom(info.Name);
 		MenuManager.Instance.OpenMenu("loading");
 	}

@@ -62,6 +62,7 @@ public class CheckForWin : MonoBehaviourPunCallbacks
     IEnumerator WaitTenSec() {
         yield return new WaitForSeconds(10f);
         Destroy(RoomManager.Instance);
+        UnityEngine.XR.XRSettings.enabled = false;
         PhotonNetwork.LeaveRoom();
         //PhotonNetwork.Disconnect();
     }
